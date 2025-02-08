@@ -1,79 +1,43 @@
 # DIO - Trilha Java Básico
 
-[Visite o site da DIO](https://www.dio.me)
+[Visite o site](https://www.dio.me)
 
 **Autor:** Gleyson Sampaio
 
 ---
 
-## Controle de Fluxo - Desafio
+## Desafio: Sintaxe
 
-Vamos exercitar todo o conteúdo apresentado no módulo de Controle de Fluxo codificando o seguinte cenário.
+Vamos exercitar todo o conteúdo apresentado no módulo de Sintaxe codificando o seguinte cenário.
 
-### Cenário
+### Objetivo do Projeto
 
-O sistema deverá receber dois parâmetros via terminal que representarão dois números inteiros. Com esses dois números, você deverá:
+Crie o projeto **ContaBanco** que receberá dados via terminal contendo as características de uma conta bancária conforme os atributos abaixo:
 
-- Calcular a quantidade de interações necessárias (utilizando um laço `for`) e imprimir no console os números incrementados.
-- **Exemplo:**  
-  Se os números informados forem `12` e `30`, haverá `18` iterações, onde serão exibidas mensagens como:  
-  - "Imprimindo o número 1"  
-  - "Imprimindo o número 2"  
-  - ... e assim por diante.
+| Atributo     | Tipo    | Exemplo        |
+|--------------|---------|----------------|
+| **Número**   | Inteiro | 1021           |
+| **Agência**  | Texto   | 067-8          |
+| **Nome Cliente** | Texto   | MARIO ANDRADE |
+| **Saldo**    | Decimal | 237.48         |
 
-### Regras de Negócio
+### Instruções de Desenvolvimento
 
-- **Validação:**  
-  Se o primeiro parâmetro for **maior** que o segundo, o sistema deverá lançar uma exceção customizada chamada `ParametrosInvalidosException` com a mensagem:  
-  > "O segundo parâmetro deve ser maior que o primeiro"
+1. **Criação da Classe:**  
+   Dentro do projeto, crie a classe `ContaTerminal.java` para realizar toda a codificação do programa.
 
-### Estrutura do Projeto
+2. **Revisões Necessárias:**  
+   - **Declaração de Variáveis:** Revise as regras de declaração de variáveis.
+   - **Terminal, `main` e Scanner:** Revise sobre o uso do terminal, o método `main(String[] args)` e a classe `Scanner` para entrada de dados.
+   - **Concatenação de Strings:** Revise sobre concatenação e o método `concat` da classe `String`.
 
-Crie o projeto **DesafioControleFluxo** e, dentro dele, as seguintes classes:
-
-1. **Contador.java:**  
-   Responsável por implementar a lógica do programa, ler os dados do terminal e realizar a contagem.
+3. **Entrada de Dados:**  
+   Permita que os dados sejam inseridos via terminal. O usuário deverá receber uma mensagem indicando qual informação será solicitada. Por exemplo:
    
-2. **ParametrosInvalidosException.java:**  
-   Classe que representa a exceção de negócio a ser lançada caso a validação dos parâmetros falhe.
+   - **Mensagem do Programa:** "Por favor, digite o número da Agência!"
+   - **Entrada do Usuário:** `1021` (após digitar, pressione ENTER para o próximo campo)
 
-# Desafio Concluído
+4. **Exibição da Mensagem Final:**  
+   Após todas as informações serem inseridas, o sistema deverá exibir a seguinte mensagem:
 
-A seguir, um trecho de código base que você poderá utilizar e ajustar conforme necessário:
-
-```java
-import java.util.Scanner;
-
-public class Contador {
-    public static void main(String[] args) {
-        Scanner terminal = new Scanner(System.in);
-        
-        System.out.println("Digite o primeiro parâmetro");
-        int parametroUm = terminal.nextInt(); // Utilize nextInt() para ler um inteiro
-        
-        System.out.println("Digite o segundo parâmetro");
-        int parametroDois = terminal.nextInt(); // Utilize nextInt() para ler um inteiro
-        
-        try {
-            // Chamando o método contendo a lógica de contagem
-            contar(parametroUm, parametroDois);
-        } catch (ParametrosInvalidosException e) { // Captura a exceção customizada
-            // Exibe a mensagem de erro: "O segundo parâmetro deve ser maior que o primeiro"
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    static void contar(int parametroUm, int parametroDois) throws ParametrosInvalidosException {
-        // Validação: se o primeiro parâmetro for maior que o segundo, lança a exceção
-        if (parametroUm > parametroDois) {
-            throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro");
-        }
-        
-        int contagem = parametroDois - parametroUm;
-        
-        // Realiza o laço de repetição para imprimir os números incrementados
-        for (int i = 1; i <= contagem; i++) {
-            System.out.println("Imprimindo o número " + i);
-        }
-    }
-
+# Desafio concluído
